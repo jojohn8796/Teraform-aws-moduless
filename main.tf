@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-south-1"
 }
 
 module "vpc" {
@@ -12,7 +12,7 @@ module "vpc" {
 
 module "ec2" {
   source         = "./ec2"
-  my_public_key  = "shekhar"
+  my_public_key  = "jojin"
   instance_type  = "t2.micro"
   security_group = "${module.vpc.security_group}"
   subnets        = "${module.vpc.public_subnets}"
@@ -40,7 +40,7 @@ module "auto_scaling" {
 
 module "sns_topic" {
   source       = "./sns"
-  alarms_email = "plakhera2019@gmail.com"
+  alarms_email = "jojinjacobjohn@yahoo.in"
 }
 
 module "cloudwatch" {
@@ -66,12 +66,12 @@ module "route53" {
 
 module "iam" {
   source   = "./iam"
-  username = ["plakhera1", "prashant", "pankaj"]
+  username = ["jojin", "jacob", "john"]
 }
 
 module "s3" {
   source         = "./s3"
-  s3_bucket_name = "raman-training"
+  s3_bucket_name = "jojin-training"
 }
 
 module "cloudtrail" {
